@@ -2,7 +2,7 @@
 """Task 0 module"""
 import uuid
 import redis
-from typing import Union, Callable
+from typing import Union, Callable, Any
 
 def count_calls(method: Callable) -> Callable:
     '''Tracks the number of calls made to a method in a Cache class.
