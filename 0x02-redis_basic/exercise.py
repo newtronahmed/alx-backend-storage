@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-"""Task 0 module"""
+'''A module for using the Redis NoSQL data storage.
+'''
 import uuid
 import redis
-from typing import Union, Callable, Any
+from functools import wraps
+from typing import Any, Callable, Union
+
 
 def count_calls(method: Callable) -> Callable:
     '''Tracks the number of calls made to a method in a Cache class.
@@ -15,6 +18,7 @@ def count_calls(method: Callable) -> Callable:
             self._redis.incr(method.__qualname__)
         return method(self, *args, **kwargs)
     return invoker
+
 
 def call_history(method: Callable) -> Callable:
     '''Tracks the call details of a method in a Cache class.
